@@ -43,22 +43,6 @@ export const translations: TranslationDict = {
     en: 'Logout',
   },
 
-  // --- Hero Section ---
-  gateway: {
-    en: 'Your Gateway To Trusted Financial Journey',
-  },
-  gateway_desc: {
-    en: 'Let us help you empower your financial freedom by strengthening communities.',
-  },
-  know_more: {
-    en: 'Know More',
-  },
-  branches_stat: {
-    en: '86 Branches In Country',
-  },
-  employees_stat: {
-    en: '1.6k On Role Employees',
-  },
 
   // --- Products Section ---
   prod_title: {
