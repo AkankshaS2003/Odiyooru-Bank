@@ -100,11 +100,11 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       const defaultUser: User & { password?: string } = {
         fullName: 'Rajesh Kumar Sharma',
         mobile: '9876543210',
-        email: 'member@iccs.in',
+        email: 'member@odiyoorubank.in',
         aadhaar: '1234 5678 9012',
         pan: 'ABCDE1234F',
-        address: '102, Shanti Nagar, Sector 4, Rohini, New Delhi - 110085',
-        memberId: 'ICCS-2026-9041',
+        address: 'Shree Gurudevadatta Samsthanam, Odiyoor Post, Bantwal Taluk - 574243',
+        memberId: 'OS-2026-9041',
         kycStatus: 'Verified',
         savingsBalance: 25480,
         deposits: [
@@ -180,11 +180,11 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         const newUser: User = {
           fullName: 'New Valued Member',
           mobile: otpMobile || '9876543210',
-          email: `${otpMobile || 'member'}@iccs.in`,
+          email: `${otpMobile || 'member'}@odiyoorubank.in`,
           aadhaar: 'XXXX XXXX XXXX',
           pan: 'XXXXX0000X',
           address: 'Not Provided',
-          memberId: `ICCS-2026-${randId}`,
+          memberId: `OS-2026-${randId}`,
           kycStatus: 'Unsubmitted',
           savingsBalance: 5000,
           deposits: [],
@@ -212,10 +212,10 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     if (exists) {
       throw new Error('Email or Mobile Number is already registered.');
     }
-
+ 
     const randId = Math.floor(1000 + Math.random() * 9000);
-    const memberId = `ICCS-2026-${randId}`;
-
+    const memberId = `OS-2026-${randId}`;
+ 
     const newUser: User & { password?: string } = {
       ...data,
       memberId,

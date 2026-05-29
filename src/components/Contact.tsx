@@ -67,7 +67,7 @@ export const Contact: React.FC = () => {
                   <div>
                     <h4 className="font-bold text-slate-800 text-sm mb-0.5">{t('direct_helpdesk')}</h4>
                     <p className="font-semibold text-slate-900 hover:text-primary cursor-pointer">
-                      +91 11 4983 2000
+                      <a href="tel:0824-2439114">0824-2439114</a>
                     </p>
                   </div>
                 </div>
@@ -76,8 +76,8 @@ export const Contact: React.FC = () => {
                   <Mail className="h-5 w-5 text-primary mt-0.5 shrink-0" />
                   <div>
                     <h4 className="font-bold text-slate-800 text-sm mb-0.5">{t('electronic_mail')}</h4>
-                    <p className="font-semibold text-slate-900 hover:text-primary cursor-pointer">
-                      support@iccs.in
+                    <p className="font-semibold text-slate-900 hover:text-primary cursor-pointer break-all">
+                      <a href="mailto:odiyoorsricooperative@gmail.com">odiyoorsricooperative@gmail.com</a>
                     </p>
                   </div>
                 </div>
@@ -97,8 +97,8 @@ export const Contact: React.FC = () => {
             {/* Google Map Mock/Embed */}
             <div className="h-64 rounded-3xl overflow-hidden border border-slate-150 shadow-sm relative bg-slate-100">
               <iframe
-                title="ICCS Rohini Head Office"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3498.423984570077!2d77.12328221508496!3d28.706853782388048!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d03d36cd7b9b1%3A0xe5a3c200c9e68cbb!2sSector%207%2C%20Rohini%2C%20Delhi%2C%20110085!5e0!3m2!1sen!2sin!4v1655848529240!5m2!1sen!2sin"
+                title="Shri Gurudevadatta Samsthanam, Odiyoor"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3891.6123932628598!2d75.0286395!3d12.738690400000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba49f7b0c9cf9fb%3A0x610ef22caa7f68c4!2sShri%20Gurudevadatta%20Samsthanam%2C%20Odiyoor!5e0!3m2!1sen!2sin!4v1780055860703!5m2!1sen!2sin"
                 className="w-full h-full border-0 absolute inset-0"
                 allowFullScreen={true}
                 loading="lazy"

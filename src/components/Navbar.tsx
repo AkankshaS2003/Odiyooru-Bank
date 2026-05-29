@@ -65,14 +65,15 @@ export const Navbar: React.FC<NavbarProps> = ({ currentTab, setCurrentTab }) => 
 
   return (
     <>
-      <header className="fixed top-0 left-0 w-full z-40 bg-white border-b border-slate-150 shadow-sm">
+      {/* 1. Static Top Header (Ticker & Banner) */}
+      <header className="w-full bg-[#0A315C] z-30 select-none shadow-sm">
         
-        {/* Top Bar with Ticker & Clock */}
-        <div className="bg-[#005BAC] text-white text-[10px] font-semibold py-1 px-4 sm:px-6 lg:px-8 flex justify-between items-center border-b border-[#00AEEF]/20">
+        {/* Row 1: Top Bar with Ticker & Clock */}
+        <div className="bg-[#051C36] text-white text-[10px] font-semibold py-1 px-4 sm:px-6 lg:px-8 flex justify-between items-center border-b border-secondary/20">
           
           {/* Left: Scrolling Headlines Marquee */}
           <div className="flex-1 overflow-hidden mr-8 flex items-center space-x-2">
-            <span className="bg-[#16A34A] text-white px-2 py-0.5 rounded text-[8px] uppercase tracking-wider font-extrabold animate-pulse shrink-0">LATEST News</span>
+            <span className="bg-accent text-white px-2 py-0.5 rounded text-[8px] uppercase tracking-wider font-extrabold animate-pulse shrink-0">LATEST News</span>
             <div className="w-full">
               {React.createElement(
                 'marquee',
@@ -94,42 +95,40 @@ export const Navbar: React.FC<NavbarProps> = ({ currentTab, setCurrentTab }) => 
 
         </div>
 
-        {/* Main Navbar wrapper */}
+      </header>
+
+      {/* 2. Row 3: Sticky Navigation Menu & Quick Actions */}
+      <nav className="sticky top-0 z-40 bg-[#ED7F1E] backdrop-blur-md border-b border-slate-150 shadow-sm select-none">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
+          <div className="flex justify-between items-center h-20">
             
-            {/* Logo Circular Seal */}
-            <div className="flex items-center space-x-3 cursor-pointer" onClick={() => handleNavClick('home')}>
-              <div className="relative h-12 w-12 flex items-center justify-center bg-gradient-to-br from-emerald-50 to-primary/10 rounded-full border border-emerald-500/30 shadow-inner shrink-0">
-                <svg className="w-11 h-11" viewBox="0 0 100 100">
-                  <circle cx="50" cy="50" r="46" fill="none" stroke="#16A34A" strokeWidth="2" strokeDasharray="2 2" />
-                  <circle cx="50" cy="50" r="42" fill="none" stroke="#005BAC" strokeWidth="1.5" />
-                  <path d="M 38 65 Q 32 50 48 42 Q 40 56 38 65 Z" fill="#16A34A" />
-                  <path d="M 62 65 Q 68 50 52 42 Q 60 56 62 65 Z" fill="#16A34A" />
-                  <path d="M 38 52 Q 50 46 62 52 M 43 56 C 45 52, 55 52, 57 56" fill="none" stroke="#005BAC" strokeWidth="2.5" strokeLinecap="round" />
-                  <rect x="44" y="32" width="12" height="10" rx="1.5" fill="#005BAC" />
-                  <polygon points="41,32 50,24 59,32" fill="#16A34A" />
-                </svg>
-              </div>
-              <div>
-                <span className="text-sm sm:text-base font-black tracking-tight text-[#005BAC] uppercase block leading-none font-heading">
-                  Indian Cooperative
+            {/* Logo Circular Seal (Compact for Sticky Bar!) */}
+            <div className="flex items-center space-x-2.5 cursor-pointer" onClick={() => handleNavClick('home')}>
+              <img
+                src="/logo-bg.png"
+                alt="Odiyooru Souharda Logo"
+                className="h-16 w-16 object-contain shrink-0"
+              />
+              <div className="leading-tight">
+                <span className="text-base sm:text-lg font-black tracking-tight text-primary uppercase block leading-none font-heading">
+                  Odiyooru Souharda
                 </span>
-                <span className="text-[10px] sm:text-[11px] font-bold text-slate-500 uppercase tracking-widest leading-none block mt-1">
-                  Credit Society Limited
+                <span className="text-xs font-bold text-slate-500 uppercase tracking-widest leading-none block mt-0.5">
+                  Cooperative Society Ltd
                 </span>
-                <span className="text-[8px] font-bold text-[#16A34A] block mt-0.5 font-mono">
-                  REGD. NO. MSCS/CR/312/2012
+                <span className="text-[10px] font-bold text-accent block mt-0.5 font-mono leading-none">
+                  DRP;S.9:88;RGN;520;2010-11
                 </span>
               </div>
             </div>
+
             {/* Desktop Navigation Links */}
             <nav className="hidden lg:flex items-center space-x-6">
               
               {/* Home */}
               <button
                 onClick={() => handleNavClick('home')}
-                className={`text-xs font-bold uppercase tracking-wider transition-colors hover:text-primary ${currentTab === 'home' ? 'text-primary animate-pulse-slow' : 'text-slate-700'}`}
+                className={`text-sm font-bold uppercase tracking-wider transition-colors hover:text-white ${currentTab === 'home' ? 'text-white animate-pulse-slow' : 'text-white/90'}`}
               >
                 {t('home')}
               </button>
@@ -137,7 +136,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentTab, setCurrentTab }) => 
               {/* About Us */}
               <button
                 onClick={() => handleNavClick('about')}
-                className={`text-xs font-bold uppercase tracking-wider transition-colors hover:text-primary ${currentTab === 'about' ? 'text-primary' : 'text-slate-700'}`}
+                className={`text-sm font-bold uppercase tracking-wider transition-colors hover:text-white ${currentTab === 'about' ? 'text-white' : 'text-white/90'}`}
               >
                 {t('about')}
               </button>
@@ -145,7 +144,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentTab, setCurrentTab }) => 
               {/* Products */}
               <button
                 onClick={() => handleNavClick('products')}
-                className={`text-xs font-bold uppercase tracking-wider transition-colors hover:text-primary ${currentTab === 'products' ? 'text-primary' : 'text-slate-700'}`}
+                className={`text-sm font-bold uppercase tracking-wider transition-colors hover:text-white ${currentTab === 'products' ? 'text-white' : 'text-white/90'}`}
               >
                 {t('products')}
               </button>
@@ -153,7 +152,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentTab, setCurrentTab }) => 
               {/* Media */}
               <button
                 onClick={() => handleNavClick('media')}
-                className={`text-xs font-bold uppercase tracking-wider transition-colors hover:text-primary ${currentTab === 'media' ? 'text-primary' : 'text-slate-700'}`}
+                className={`text-sm font-bold uppercase tracking-wider transition-colors hover:text-white ${currentTab === 'media' ? 'text-white' : 'text-white/90'}`}
               >
                 {t('media')}
               </button>
@@ -161,7 +160,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentTab, setCurrentTab }) => 
               {/* Membership */}
               <button
                 onClick={() => handleNavClick('membership')}
-                className={`text-xs font-bold uppercase tracking-wider transition-colors hover:text-primary ${currentTab === 'membership' ? 'text-primary' : 'text-slate-700'}`}
+                className={`text-sm font-bold uppercase tracking-wider transition-colors hover:text-white ${currentTab === 'membership' ? 'text-white' : 'text-white/90'}`}
               >
                 {t('membership')}
               </button>
@@ -169,7 +168,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentTab, setCurrentTab }) => 
               {/* Contact Us */}
               <button
                 onClick={() => handleNavClick('contact')}
-                className={`text-xs font-bold uppercase tracking-wider transition-colors hover:text-primary ${currentTab === 'contact' ? 'text-primary' : 'text-slate-700'}`}
+                className={`text-sm font-bold uppercase tracking-wider transition-colors hover:text-white ${currentTab === 'contact' ? 'text-white' : 'text-white/90'}`}
               >
                 {t('contact')}
               </button>
@@ -179,35 +178,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentTab, setCurrentTab }) => 
             {/* Quick Actions Interaction Area */}
             <div className="flex items-center space-x-3.5">
               
-              {/* Language Switch Dropdown (Highly Premium Integration!) */}
-              <div className="relative">
-                <button 
-                  onClick={() => setIsLangDropdownOpen(!isLangDropdownOpen)}
-                  className="flex items-center space-x-1.5 px-3 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 hover:text-primary rounded-xl text-xs font-bold transition-all focus:outline-none"
-                  title="Switch Language / ಭಾಷೆ ಬದಲಾಯಿಸಿ"
-                >
-                  <Globe className="h-4 w-4 shrink-0" />
-                  <span className="uppercase">{language}</span>
-                  <ChevronDown className="h-3 w-3" />
-                </button>
-                {isLangDropdownOpen && (
-                  <div className="absolute right-0 top-full mt-2 w-40 bg-white border border-slate-150 rounded-2xl shadow-2xl py-2 z-50 animate-scale-up text-left">
-                    {[
-                      { code: 'en', label: 'English' },
-                      { code: 'kn', label: 'ಕನ್ನಡ (Kannada)' },
-                      { code: 'hi', label: 'हिन्दी (Hindi)' }
-                    ].map((lang) => (
-                      <button
-                        key={lang.code}
-                        onClick={() => handleLanguageChange(lang.code as Language)}
-                        className={`w-full px-4 py-2.5 text-xs text-left font-bold transition-all block ${language === lang.code ? 'bg-primary/5 text-primary' : 'text-slate-650 hover:bg-slate-50'}`}
-                      >
-                        {lang.label}
-                      </button>
-                    ))}
-                  </div>
-                )}
-              </div>
+
 
               {/* Search Toggle */}
               <button 
@@ -238,7 +209,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentTab, setCurrentTab }) => 
                   <>
                     <button
                       onClick={() => handleNavClick('dashboard')}
-                      className={`px-4 py-2 rounded-xl border font-bold text-xs transition-all ${currentTab === 'dashboard' ? 'bg-[#005BAC] text-white border-[#005BAC]' : 'bg-white hover:bg-slate-50 border-slate-200 text-slate-700'}`}
+                      className={`px-4 py-2 rounded-xl border font-bold text-xs transition-all ${currentTab === 'dashboard' ? 'bg-primary text-white border-primary' : 'bg-white hover:bg-slate-50 border-slate-200 text-slate-700'}`}
                     >
                       <span>{t('dashboard')}</span>
                     </button>
@@ -273,7 +244,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentTab, setCurrentTab }) => 
             </div>
           </div>
         </div>
-      </header>
+      </nav>
 
       {/* Slide-out Mobile Panel Drawer */}
       {isMobileMenuOpen && (
@@ -288,21 +259,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentTab, setCurrentTab }) => 
                 </button>
               </div>
 
-              {/* Mobile language selector */}
-              <div className="p-3 bg-slate-50 border border-slate-150 rounded-2xl flex justify-between items-center">
-                <span className="text-xs font-bold text-slate-500">Language / ಭಾಷೆ</span>
-                <div className="flex space-x-1.5">
-                  {(['en', 'kn', 'hi'] as Language[]).map((ln) => (
-                    <button
-                      key={ln}
-                      onClick={() => handleLanguageChange(ln)}
-                      className={`px-2.5 py-1 text-[10px] font-extrabold rounded-lg uppercase ${language === ln ? 'bg-primary text-white' : 'bg-white text-slate-600 border border-slate-200'}`}
-                    >
-                      {ln}
-                    </button>
-                  ))}
-                </div>
-              </div>
+
 
               <div className="flex flex-col space-y-4 text-xs font-bold text-slate-700">
                 <button onClick={() => handleNavClick('home')} className="text-left py-2 hover:text-primary">{t('home')}</button>

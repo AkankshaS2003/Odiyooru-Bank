@@ -23,28 +23,21 @@ export const Footer: React.FC<FooterProps> = ({ setCurrentTab }) => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 mb-12">
           
           {/* Left Column: Logo, description, and green social icons */}
-          {/* Left Column: Logo, description, and green social icons */}
-          <div className="lg:col-span-6 space-y-6">
+          <div className="lg:col-span-5 space-y-6">
             
             {/* Logo Crest inline representation */}
             <div className="flex items-center space-x-3 cursor-pointer" onClick={() => handleNavClick('home')}>
-              <div className="relative h-11 w-11 flex items-center justify-center bg-white/5 rounded-full border border-emerald-500/20 shadow-inner shrink-0">
-                <svg className="w-10 h-10" viewBox="0 0 100 100">
-                  <circle cx="50" cy="50" r="46" fill="none" stroke="#16A34A" strokeWidth="2" strokeDasharray="2 2" />
-                  <circle cx="50" cy="50" r="42" fill="none" stroke="#005BAC" strokeWidth="1.5" />
-                  <path d="M 38 65 Q 32 50 48 42 Q 40 56 38 65 Z" fill="#16A34A" />
-                  <path d="M 62 65 Q 68 50 52 42 Q 60 56 62 65 Z" fill="#16A34A" />
-                  <path d="M 38 52 Q 50 46 62 52 M 43 56 C 45 52, 55 52, 57 56" fill="none" stroke="#005BAC" strokeWidth="2.5" strokeLinecap="round" />
-                  <rect x="44" y="32" width="12" height="10" rx="1.5" fill="#005BAC" />
-                  <polygon points="41,32 50,24 59,32" fill="#16A34A" />
-                </svg>
-              </div>
+              <img
+                src="/logo-bg.png"
+                alt="Odiyooru Souharda Logo"
+                className="h-11 w-11 object-contain shrink-0"
+              />
               <div>
-                <span className="text-xs sm:text-sm font-black tracking-tight text-[#00AEEF] uppercase block leading-none font-heading">
-                  Indian Cooperative
+                <span className="text-xs sm:text-sm font-black tracking-tight text-secondary uppercase block leading-none font-heading">
+                  Odiyooru Souharda
                 </span>
                 <span className="text-[9px] sm:text-[10px] font-bold text-slate-400 uppercase tracking-widest leading-none block mt-1">
-                  Credit Society Limited
+                  Cooperative Society Ltd
                 </span>
               </div>
             </div>
@@ -66,7 +59,7 @@ export const Footer: React.FC<FooterProps> = ({ setCurrentTab }) => {
                   <a
                     key={index}
                     href={social.url}
-                    className="h-10 w-10 rounded-full bg-[#16A34A] hover:bg-[#15803D] flex items-center justify-center text-white transition-all transform active:scale-95 shadow-md shadow-emerald-950/20"
+                    className="h-10 w-10 rounded-full bg-accent hover:bg-accent-dark flex items-center justify-center text-white transition-all transform active:scale-95 shadow-md shadow-emerald-950/20"
                   >
                     <Icon className="h-5 w-5" />
                   </a>
@@ -76,7 +69,7 @@ export const Footer: React.FC<FooterProps> = ({ setCurrentTab }) => {
           </div>
 
           {/* Center Column: Quick Links - localized */}
-          <div className="lg:col-span-3 space-y-4">
+          <div className="lg:col-span-2 space-y-4 text-left">
             <h4 className="text-xs font-bold uppercase tracking-wider text-slate-200">
               {t('quick_links')} <span className="text-slate-400">→</span>
             </h4>
@@ -101,7 +94,7 @@ export const Footer: React.FC<FooterProps> = ({ setCurrentTab }) => {
           </div>
 
           {/* Right Column: Products - localized */}
-          <div className="lg:col-span-3 space-y-4">
+          <div className="lg:col-span-2 space-y-4 text-left">
             <h4 className="text-xs font-bold uppercase tracking-wider text-slate-200">
               {t('footer_prod_title')} <span className="text-slate-400">→</span>
             </h4>
@@ -125,6 +118,31 @@ export const Footer: React.FC<FooterProps> = ({ setCurrentTab }) => {
                 </li>
               ))}
             </ul>
+          </div>
+
+          {/* New Column: Contact Us - localized */}
+          <div className="lg:col-span-3 space-y-4 text-left">
+            <h4 className="text-xs font-bold uppercase tracking-wider text-slate-200">
+              {t('contact')} <span className="text-slate-400">→</span>
+            </h4>
+            <div className="space-y-3 text-xs text-slate-400 font-semibold leading-relaxed">
+              <p className="text-secondary font-extrabold text-xs leading-snug">
+                {t('footer_bank_name')}
+              </p>
+              <p className="text-[11px] text-slate-400">
+                {t('footer_bank_address')}
+              </p>
+              <div className="pt-1.5 space-y-1 text-[11px]">
+                <p className="block">
+                  <span className="text-slate-200 font-bold">Phone: </span>
+                  <a href="tel:0824-2439114" className="hover:text-white transition-colors">0824-2439114</a>
+                </p>
+                <p className="block break-all">
+                  <span className="text-slate-200 font-bold">Email: </span>
+                  <a href="mailto:odiyoorsricooperative@gmail.com" className="hover:text-white transition-colors">odiyoorsricooperative@gmail.com</a>
+                </p>
+              </div>
+            </div>
           </div>
 
         </div>

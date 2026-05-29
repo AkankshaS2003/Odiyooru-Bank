@@ -3,17 +3,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap');
 
 @theme {
-  --color-primary: #005BAC;
-  --color-primary-light: #3B82F6;
-  --color-primary-dark: #004C8C;
+  --color-primary: #0A315C;
+  --color-primary-light: #164E87;
+  --color-primary-dark: #051C36;
   
-  --color-secondary: #00AEEF;
-  --color-secondary-light: #38BDF8;
-  --color-secondary-dark: #0369A1;
+  --color-secondary: #EED000;
+  --color-secondary-light: #FFF38A;
+  --color-secondary-dark: #B59E00;
   
-  --color-accent: #16A34A;
-  --color-accent-light: #4ADE80;
-  --color-accent-dark: #15803D;
+  --color-accent: #ED7F1E;
+  --color-accent-light: #FFAA5C;
+  --color-accent-dark: #A85307;
   
   --color-bankdark: #050816;
   --color-bankdark-card: #0B0F19;
@@ -41,9 +41,9 @@
 @utility glass-card-hover {
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   &:hover {
-    box-shadow: 0 20px 25px -5px rgba(0, 91, 172, 0.05), 0 8px 10px -6px rgba(0, 91, 172, 0.05);
+    box-shadow: 0 20px 25px -5px rgba(10, 49, 92, 0.05), 0 8px 10px -6px rgba(10, 49, 92, 0.05);
     transform: translateY(-4px);
-    border-color: rgba(0, 91, 172, 0.2);
+    border-color: rgba(10, 49, 92, 0.2);
   }
 }
 
@@ -104,7 +104,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Active Nav Link Marker */
 .nav-link-active {
-  color: #005BAC;
+  color: var(--color-primary);
   font-weight: 600;
   position: relative;
 }
@@ -116,7 +116,7 @@ h1, h2, h3, h4, h5, h6 {
   left: 0;
   width: 100%;
   height: 2px;
-  background-color: #005BAC;
+  background-color: var(--color-primary);
   border-radius: 9999px;
 }
 

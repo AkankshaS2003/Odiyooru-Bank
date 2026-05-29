@@ -105,7 +105,7 @@ export const Login: React.FC<LoginProps> = ({ setCurrentTab }) => {
     setErrorMsg(null);
     try {
       // Simulate Google OAuth
-      const success = await login('member@iccs.in', 'password');
+      const success = await login('member@odiyoorubank.in', 'password');
       if (success) {
         setCurrentTab('home');
         window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -128,9 +128,15 @@ export const Login: React.FC<LoginProps> = ({ setCurrentTab }) => {
           <div className="absolute top-0 right-0 -mt-10 -mr-10 w-32 h-32 bg-secondary/20 rounded-full blur-xl"></div>
           
           <div className="space-y-6 relative z-10">
-            <div className="flex items-center space-x-2 cursor-pointer" onClick={() => setCurrentTab('home')}>
-              <Landmark className="h-7 w-7 text-secondary" />
-              <span className="text-xl font-bold font-sans tracking-tight">ICCS Ltd</span>
+            <div className="flex items-center space-x-3 cursor-pointer" onClick={() => setCurrentTab('home')}>
+              <img
+                src="/logo-bg.png"
+                alt="Odiyooru Souharda Logo"
+                className="h-8 w-8 object-contain shrink-0"
+              />
+              <span className="text-xl font-black font-sans tracking-tight text-white uppercase block leading-none font-heading">
+                Odiyooru
+              </span>
             </div>
 
             <div className="space-y-3 pt-6">
@@ -201,13 +207,13 @@ export const Login: React.FC<LoginProps> = ({ setCurrentTab }) => {
                     <input
                       type="text"
                       required
-                      placeholder="e.g. ICCS-2026-9041 or member@iccs.in"
+                      placeholder="e.g. OS-2026-9041 or member@odiyoorubank.in"
                       className="w-full pl-10 pr-4 py-3 text-xs bg-slate-50 border border-slate-200 rounded-xl focus:ring-1 focus:ring-primary focus:border-primary focus:outline-none placeholder-slate-400 text-slate-800"
                       value={identifier}
                       onChange={(e) => setIdentifier(e.target.value)}
                     />
                   </div>
-                  <span className="text-[10px] text-slate-400 block px-1">Demo Email: <code className="bg-slate-100 px-1 py-0.5 rounded font-mono text-[9px]">member@iccs.in</code></span>
+                  <span className="text-[10px] text-slate-400 block px-1">Demo Email: <code className="bg-slate-100 px-1 py-0.5 rounded font-mono text-[9px]">member@odiyoorubank.in</code></span>
                 </div>
 
                 <div className="space-y-1.5">
