@@ -50,7 +50,36 @@ export const Hero: React.FC<HeroProps> = ({ setCurrentTab }) => {
       </div>
 
       {/* 2. Text Overlaid on top of the Big Slider (Exactly as in Reference 1 Casing & Styles) */}
-      
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 w-full py-16">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+
+          {/* Overlaid content column */}
+          <div className="lg:col-span-12 space-y-6 text-left">
+            <h1 className="text-4xl sm:text-5xl lg:text-[62px] font-black text-white leading-[1.08] tracking-tight font-heading drop-shadow-md">
+              Your Gateway To Trusted Financial Journey
+            </h1>
+            <p className="text-base sm:text-lg text-slate-200 max-w-xl leading-relaxed drop-shadow">
+              Let us help you empower your financial freedom by strengthening communities.
+            </p>
+            {/* CTA Buttons */}
+            <div className="flex flex-col sm:flex-row items-center gap-4 pt-2">
+              <button
+                onClick={() => setCurrentTab('login')}
+                className="w-full sm:w-auto px-8 py-4 bg-[#00A36C] hover:bg-[#008F5D] text-white font-extrabold rounded-md shadow-lg shadow-emerald-950/20 transition-all flex items-center justify-center space-x-2.5 transform active:scale-95 text-xs uppercase tracking-wider"
+              >
+                <span>Login</span>
+                <ArrowRight className="h-4.5 w-4.5" />
+              </button>
+              <button
+                onClick={() => setCurrentTab('about')}
+                className="w-full sm:w-auto px-8 py-4 bg-white/10 hover:bg-white/20 border border-white/20 text-white font-bold rounded-md shadow-sm transition-all text-xs uppercase tracking-wider"
+              >
+                <span>Know More</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
 
     </section>
   );

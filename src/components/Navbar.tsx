@@ -79,9 +79,9 @@ export const Navbar: React.FC<NavbarProps> = ({ currentTab, setCurrentTab }) => 
                 'marquee',
                 { scrollamount: '3.5', className: 'text-white/95 font-medium leading-none' },
                 <>
-                  <span className="mx-6 font-semibold">• {t('dividend_highlight')}</span>
-                  <span className="mx-6 font-semibold">• {t('news1_title')}</span>
-                  <span className="mx-6 font-semibold">• {t('news3_title')}</span>
+                  <span className="mx-6 font-semibold">• Receive up to 12% annual dividend disburser payouts!</span>
+                  <span className="mx-6 font-semibold">• Cooperative Fixed Deposit Rates Increased to 8.25%</span>
+                  <span className="mx-6 font-semibold">• New Digital Doorstep Banking Service Sanctioned</span>
                 </>
               )}
             </div>
