@@ -67,15 +67,8 @@ export const Navbar: React.FC<NavbarProps> = ({ currentTab, setCurrentTab }) => 
     <>
       {/* 1. Static Top Header (Ticker & Banner) */}
       <header className="w-full bg-[#0A315C] z-30 select-none shadow-sm">
-
         {/* Row 1: Top Bar with Ticker & Clock */}
-<<<<<<< HEAD
         <div className="bg-[#051C36] text-white text-sm font-semibold py-2 px-4 sm:px-6 lg:px-8 flex justify-between items-center border-b border-secondary/20">
-
-=======
-        <div className="bg-[#051C36] text-white text-sm font-semibold py-2 px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-start md:items-center border-b border-secondary/20 gap-2 md:gap-0 relative">
-          
->>>>>>> 66db5cbc4ad6dfa8453a78261940cd1c0f289136
           {/* Left: Scrolling Headlines Marquee */}
           <div className="w-full flex-1 overflow-hidden md:mr-8 flex items-center space-x-2 order-2 md:order-1">
             <span className="bg-accent text-white px-2 py-1 rounded text-xs uppercase tracking-wider font-extrabold animate-pulse shrink-0">LATEST News</span>
