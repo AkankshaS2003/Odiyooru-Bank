@@ -139,6 +139,14 @@ export const Navbar: React.FC<NavbarProps> = ({ currentTab, setCurrentTab }) => 
                 {t('about')}
               </button>
 
+              {/* Management */}
+              <button
+                onClick={() => handleNavClick('management')}
+                className={`text-sm font-bold uppercase tracking-wider transition-colors hover:text-white ${currentTab === 'management' ? 'text-white' : 'text-white/90'}`}
+              >
+                {t('management')}
+              </button>
+
               {/* Products */}
               <button
                 onClick={() => handleNavClick('products')}
@@ -233,6 +241,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentTab, setCurrentTab }) => 
               <div className="flex flex-col space-y-4 text-xs font-bold text-slate-700">
                 <button onClick={() => handleNavClick('home')} className="text-left py-2 hover:text-primary">{t('home')}</button>
                 <button onClick={() => handleNavClick('about')} className="text-left py-2 hover:text-primary">{t('about')}</button>
+                <button onClick={() => handleNavClick('management')} className="text-left py-2 hover:text-primary">{t('management')}</button>
                 <button onClick={() => handleNavClick('products')} className="text-left py-2 hover:text-primary">{t('products')}</button>
                 <button onClick={() => handleNavClick('Gallery')} className="text-left py-2 hover:text-primary">{t('Gallery')}</button>
                 <button onClick={() => handleNavClick('membership')} className="text-left py-2 hover:text-primary">{t('membership')}</button>

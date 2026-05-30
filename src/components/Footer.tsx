@@ -77,6 +77,7 @@ export const Footer: React.FC<FooterProps> = ({ setCurrentTab }) => {
               {[
                 { name: 'Home', tab: 'home' },
                 { name: 'About Us', tab: 'about' },
+                { name: 'Management', tab: 'management' },
                 { name: 'Contact Us', tab: 'contact' },
                 { name: 'Membership', tab: 'membership' }
               ].map((link, i) => (
@@ -85,7 +86,15 @@ export const Footer: React.FC<FooterProps> = ({ setCurrentTab }) => {
                     onClick={() => handleNavClick(link.tab)}
                     className="hover:text-white transition-colors"
                   >
-                    {link.name === 'Home' ? t('home') : link.name === 'About Us' ? t('about') : link.name === 'Contact Us' ? t('contact') : t('membership')}
+                    {link.name === 'Home' 
+                      ? t('home') 
+                      : link.name === 'About Us' 
+                      ? t('about') 
+                      : link.name === 'Management' 
+                      ? t('management') 
+                      : link.name === 'Contact Us' 
+                      ? t('contact') 
+                      : t('membership')}
                   </button>
                 </li>
               ))}

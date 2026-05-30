@@ -5,6 +5,7 @@ import { Home } from './pages/Home';
 import { Login } from './pages/Login';
 import { Dashboard } from './pages/Dashboard';
 import { AboutUs } from './pages/AboutUs';
+import { Management } from './pages/Management';
 import { ProductsPage } from './pages/ProductsPage';
 import { MediaPage } from './pages/MediaPage';
 import { MembershipPage } from './pages/MembershipPage';
@@ -38,6 +39,9 @@ export const translations: TranslationDict = {
   },
   membership: {
     en: 'Membership',
+  },
+  management: {
+    en: 'Management',
   },
   contact: {
     en: 'Contact Us',
@@ -1007,6 +1011,8 @@ const AppContent: React.FC = () => {
         return <ContactPage />;
       case 'media':
         return <MediaPage />;
+      case 'management':
+        return <Management setCurrentTab={setCurrentTab} />;
       case 'about':
         return <AboutUs setCurrentTab={setCurrentTab} />;
       default:
