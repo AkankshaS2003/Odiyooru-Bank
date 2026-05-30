@@ -14,13 +14,11 @@ import { AIChatAssistant } from './components/AIChatAssistant';
 import { FloatingScrollButton } from './components/FloatingScrollButton';
 
 
-export type Language = 'en' | 'kn' | 'hi';
+export type Language = 'en';
 
 interface TranslationDict {
   [key: string]: {
     en: string;
-    kn?: string;
-    hi?: string;
   };
 }
 
