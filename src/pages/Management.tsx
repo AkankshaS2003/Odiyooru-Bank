@@ -171,7 +171,7 @@ export const Management: React.FC<ManagementProps> = ({ setCurrentTab }) => {
             return (
               <div
                 key={index}
-                className="flip-card w-full h-[470px] sm:h-[500px] group cursor-pointer"
+                className="flip-card w-full h-[420px] sm:h-[450px] group cursor-pointer"
               >
                 <div className="flip-card-inner">
                   {/* Front Side */}
@@ -194,11 +194,6 @@ export const Management: React.FC<ManagementProps> = ({ setCurrentTab }) => {
 
                       {/* Elegant bottom gradient shade on picture */}
                       <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-30 group-hover:opacity-15 transition-opacity duration-500"></div>
-
-                      {/* Interaction hint */}
-                      <div className="absolute bottom-3 left-4 z-10 bg-black/40 backdrop-blur-xs px-2.5 py-1 rounded-full flex items-center space-x-1">
-                        <span className="text-[9px] font-bold text-white uppercase tracking-wider">Hover to Flip</span>
-                      </div>
                     </div>
 
                     {/* Profile Details */}
@@ -247,16 +242,6 @@ export const Management: React.FC<ManagementProps> = ({ setCurrentTab }) => {
                       <p className="text-slate-300 text-[11px] sm:text-xs leading-relaxed font-normal text-left italic">
                         "{director.bio}"
                       </p>
-                    </div>
-
-                    {/* Back Footer */}
-                    <div className="pt-4 border-t border-white/10 flex justify-between items-center relative z-10 shrink-0">
-                      <span className="text-[9px] font-extrabold text-[#ED7F1E] uppercase tracking-wider">
-                        Board of Directors
-                      </span>
-                      <span className="text-[9px] font-medium text-slate-400 uppercase tracking-widest">
-                        Odiyooru
-                      </span>
                     </div>
                   </div>
                 </div>
