@@ -17,72 +17,28 @@ export const MediaPage: React.FC = () => {
   ];
 
   return (
-    <section className="py-24 bg-white min-h-screen">
+    <section className="py-5 bg-white min-h-screen">
       <div className="max-w-6xl mx-auto px-4 space-y-16">
-        
-        {/* News Section */}
-        <div className="space-y-12">
-          <div className="text-center space-y-4">
-            <span className="text-sm font-bold text-primary uppercase tracking-widest block">{t('media_title')}</span>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 font-heading">{t('media_subtitle')}</h2>
-            <p className="text-slate-600 leading-relaxed text-sm max-w-xl mx-auto">
-              {t('media_desc')}
-            </p>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[
-              {
-                title: t('media_art1_title'),
-                date: t('media_art1_date'),
-                desc: t('media_art1_desc'),
-                media: t('media_art1_src')
-              },
-              {
-                title: t('media_art2_title'),
-                date: t('media_art2_date'),
-                desc: t('media_art2_desc'),
-                media: t('media_art2_src')
-              },
-              {
-                title: t('media_art3_title'),
-                date: t('media_art3_date'),
-                desc: t('media_art3_desc'),
-                media: t('media_art3_src')
-              }
-            ].map((item, idx) => (
-              <div key={idx} className="bg-slate-50 border border-slate-150 p-6 rounded-3xl space-y-4 shadow-sm hover:shadow-md transition-all">
-                <span className="bg-primary/10 text-primary text-[10px] font-bold px-2.5 py-0.5 rounded uppercase">{item.media}</span>
-                <h3 className="font-extrabold text-slate-900 text-sm leading-snug">{item.title}</h3>
-                <p className="text-slate-500 text-xs leading-relaxed">{item.desc}</p>
-                <span className="text-[10px] text-slate-400 block font-mono">{item.date}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        <hr className="border-slate-100" />
 
         {/* Dynamic Gallery Section */}
-        <div className="space-y-8">
+        <div className="space-y-1">
           <div className="text-center space-y-3">
             <span className="text-xs font-bold text-accent uppercase tracking-widest block">Event Highlights</span>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 font-heading">{t('gallery_title')}</h2>
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 font-heading">{t('Gallary')}</h2>
             <p className="text-slate-500 leading-relaxed text-xs max-w-xl mx-auto font-medium">
-              {t('gallery_desc')}
             </p>
           </div>
 
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 pt-4">
             {galleryImages.map((img, idx) => (
-              <div 
-                key={idx} 
+              <div
+                key={idx}
                 onClick={() => setActiveImageIdx(idx)}
                 className="relative overflow-hidden rounded-3xl border border-slate-150 shadow-sm cursor-pointer group aspect-square bg-slate-50 transition-all hover:shadow-md active:scale-98"
               >
-                <img 
-                  src={img.url} 
-                  alt={img.alt} 
+                <img
+                  src={img.url}
+                  alt={img.alt}
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                   loading="lazy"
                 />
@@ -102,12 +58,12 @@ export const MediaPage: React.FC = () => {
 
       {/* Lightbox Zoom Modal */}
       {activeImageIdx !== null && (
-        <div 
+        <div
           onClick={() => setActiveImageIdx(null)}
           className="fixed inset-0 z-50 bg-slate-950/90 backdrop-blur-md flex items-center justify-center p-4 select-none animate-fade-in"
         >
           {/* Close button */}
-          <button 
+          <button
             onClick={() => setActiveImageIdx(null)}
             className="absolute top-5 right-5 text-white/70 hover:text-white transition-colors bg-white/10 hover:bg-white/20 p-2.5 rounded-full border border-white/10 focus:outline-none"
           >
@@ -117,7 +73,7 @@ export const MediaPage: React.FC = () => {
           </button>
 
           {/* Prev button */}
-          <button 
+          <button
             onClick={(e) => {
               e.stopPropagation();
               setActiveImageIdx((prev) => (prev !== null && prev > 0) ? prev - 1 : galleryImages.length - 1);
@@ -130,13 +86,13 @@ export const MediaPage: React.FC = () => {
           </button>
 
           {/* Image container */}
-          <div 
-            className="max-w-4xl w-full max-h-[80vh] flex flex-col items-center justify-center space-y-4" 
+          <div
+            className="max-w-4xl w-full max-h-[80vh] flex flex-col items-center justify-center space-y-4"
             onClick={(e) => e.stopPropagation()}
           >
-            <img 
-              src={galleryImages[activeImageIdx].url} 
-              alt={galleryImages[activeImageIdx].alt} 
+            <img
+              src={galleryImages[activeImageIdx].url}
+              alt={galleryImages[activeImageIdx].alt}
               className="max-w-full max-h-[70vh] object-contain rounded-2xl shadow-2xl border border-white/10 animate-scale-up"
             />
             <div className="text-center text-white space-y-1">
@@ -146,7 +102,7 @@ export const MediaPage: React.FC = () => {
           </div>
 
           {/* Next button */}
-          <button 
+          <button
             onClick={(e) => {
               e.stopPropagation();
               setActiveImageIdx((prev) => (prev !== null && prev < galleryImages.length - 1) ? prev + 1 : 0);

@@ -14,13 +14,11 @@ import { AIChatAssistant } from './components/AIChatAssistant';
 import { FloatingScrollButton } from './components/FloatingScrollButton';
 
 
-export type Language = 'en' | 'kn' | 'hi';
+export type Language = 'en';
 
 interface TranslationDict {
   [key: string]: {
     en: string;
-    kn?: string;
-    hi?: string;
   };
 }
 
@@ -130,7 +128,7 @@ export const translations: TranslationDict = {
   best_title: {
     en: 'Industry-Best Deposit Rates',
   },
- Best_desc: {
+  Best_desc: {
     en: 'Earn up to 8.25% p.a. on Fixed Deposits, backed by sound capital reserve ratios.',
   },
   support_title: {
@@ -748,51 +746,6 @@ export const translations: TranslationDict = {
   },
 
   // --- Inline App sections ---
-  media_title: {
-    en: 'Media & Press Hub',
-  },
-  media_subtitle: {
-    en: 'Society Bulletins & Press Coverage',
-  },
-  media_desc: {
-    en: 'Stay updated with our dividend declarations, financial literacy camps, branch inaugurations, and CSR community drives.',
-  },
-  media_art1_title: {
-    en: '8.25% FD Interest Yield Launch Press Release',
-  },
-  media_art1_date: {
-    en: 'May 20, 2026',
-  },
-  media_art1_desc: {
-    en: "Official announcement detailing the society's decision to hike standard interest yields to 8.25% p.a. (8.75% for senior citizen members) compiled under Central auditing guidelines.",
-  },
-  media_art1_src: {
-    en: 'Financial Chronicle',
-  },
-  media_art2_title: {
-    en: 'Micro-Entrepreneur Support Camp in Gomti Nagar',
-  },
-  media_art2_date: {
-    en: 'May 12, 2026',
-  },
-  media_art2_desc: {
-    en: 'ICCS launched a subsidized credit disburser drive supporting over 200+ local women-owned shops with collateral-free commercial loans.',
-  },
-  media_art2_src: {
-    en: 'Cooperative Daily',
-  },
-  media_art3_title: {
-    en: 'Central Registrar Audit Declares Excellent Liquidity Score',
-  },
-  media_art3_date: {
-    en: 'April 28, 2026',
-  },
-  media_art3_desc: {
-    en: 'Annual government inspection completed successfully. ICCS maintains a capital reserve ratio of 12.5%, surpassing regulatory thresholds.',
-  },
-  media_art3_src: {
-    en: 'Delhi Times Business',
-  },
   about_title: {
     en: 'About Our Cooperative',
   },
@@ -1063,7 +1016,7 @@ const AppContent: React.FC = () => {
 
   return (
     <div className="min-h-screen flex flex-col bg-slate-50">
-      
+
       {/* 1. Header Sticky Navbar matching Reference Image 1 */}
       <Navbar currentTab={currentTab} setCurrentTab={setCurrentTab} />
 

@@ -67,17 +67,15 @@ export const Navbar: React.FC<NavbarProps> = ({ currentTab, setCurrentTab }) => 
     <>
       {/* 1. Static Top Header (Ticker & Banner) */}
       <header className="w-full bg-[#0A315C] z-30 select-none shadow-sm">
-        
         {/* Row 1: Top Bar with Ticker & Clock */}
         <div className="bg-[#051C36] text-white text-sm font-semibold py-2 px-4 sm:px-6 lg:px-8 flex justify-between items-center border-b border-secondary/20">
-          
           {/* Left: Scrolling Headlines Marquee */}
-          <div className="flex-1 overflow-hidden mr-8 flex items-center space-x-2">
+          <div className="w-full flex-1 overflow-hidden md:mr-8 flex items-center space-x-2 order-2 md:order-1">
             <span className="bg-accent text-white px-2 py-1 rounded text-xs uppercase tracking-wider font-extrabold animate-pulse shrink-0">LATEST News</span>
             <div className="w-full">
               {React.createElement(
                 'marquee',
-                { scrollamount: '5', className: 'text-white/95 text-base font-medium leading-none' },
+                { scrollamount: '5', className: 'text-white/95 text-base font-medium leading-none flex items-center' },
                 <>
                   <span className="mx-6 font-semibold">• State Best Souharda Cooperative Society Award in the 69th All India Cooperative Week</span>
                   <span className="mx-6 font-semibold">• Cooperative Fixed Deposit Rates Increased to 8.25%</span>
@@ -87,10 +85,10 @@ export const Navbar: React.FC<NavbarProps> = ({ currentTab, setCurrentTab }) => 
             </div>
           </div>
 
-          {/* Right: Real Date and Time */}
-          <div className="shrink-0 flex items-center space-x-2 text-white/95 font-mono text-sm font-bold">
-            <span className="inline-block h-2 w-2 rounded-full bg-emerald-400 animate-ping"></span>
-            <span>{dateTimeStr}</span>
+          {/* Center/Right: Real Date and Time */}
+          <div className="shrink-0 flex items-center justify-center space-x-2 text-white/80 text-[11px] font-medium order-1 md:order-2 pb-1 md:pb-0 border-b md:border-b-0 border-white/10 w-full md:w-auto">
+            <span className="inline-block h-1.5 w-1.5 rounded-full bg-emerald-400 animate-ping"></span>
+            <span className="font-stencil tracking-wider">{dateTimeStr}</span>
           </div>
 
         </div>
@@ -101,7 +99,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentTab, setCurrentTab }) => 
       <nav className="sticky top-0 z-40 bg-[#ED7F1E] backdrop-blur-md border-b border-slate-150 shadow-sm select-none">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-20">
-            
+
             {/* Logo Circular Seal (Compact for Sticky Bar!) */}
             <div className="flex items-center space-x-2.5 cursor-pointer" onClick={() => handleNavClick('home')}>
               <img
@@ -124,7 +122,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentTab, setCurrentTab }) => 
 
             {/* Desktop Navigation Links */}
             <nav className="hidden lg:flex items-center space-x-6">
-              
+
               {/* Home */}
               <button
                 onClick={() => handleNavClick('home')}
@@ -149,12 +147,12 @@ export const Navbar: React.FC<NavbarProps> = ({ currentTab, setCurrentTab }) => 
                 {t('products')}
               </button>
 
-              {/* Media */}
+              {/* Gallery */}
               <button
                 onClick={() => handleNavClick('media')}
-                className={`text-sm font-bold uppercase tracking-wider transition-colors hover:text-white ${currentTab === 'media' ? 'text-white' : 'text-white/90'}`}
+                className={`text-sm font-bold uppercase tracking-wider transition-colors hover:text-white ${currentTab === 'Gallery' ? 'text-white' : 'text-white/90'}`}
               >
-                {t('media')}
+                {t('Gallery')}
               </button>
 
               {/* Membership */}
@@ -177,12 +175,12 @@ export const Navbar: React.FC<NavbarProps> = ({ currentTab, setCurrentTab }) => 
 
             {/* Quick Actions Interaction Area */}
             <div className="flex items-center space-x-3.5">
-              
+
 
 
               {/* Notifications */}
               <div className="relative">
-                <button 
+                <button
                   onClick={() => setIsNotificationsOpen(true)}
                   className="p-2 rounded-xl text-white hover:bg-white/10 transition-colors focus:outline-none"
                 >
@@ -195,14 +193,14 @@ export const Navbar: React.FC<NavbarProps> = ({ currentTab, setCurrentTab }) => 
 
               {/* Auth states */}
               <div className="hidden sm:flex items-center space-x-2">
-                  <a
-                    href="https://example.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="px-4 py-2 rounded-xl bg-primary text-white font-bold text-xs shadow-md transition-all hover:bg-primary-dark"
-                  >
-                    {t('login')}
-                  </a>
+                <a
+                  href="https://example.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-4 py-2 rounded-xl bg-primary text-white font-bold text-xs shadow-md transition-all hover:bg-primary-dark"
+                >
+                  {t('login')}
+                </a>
               </div>
 
               {/* Mobile Drawer button */}
@@ -236,7 +234,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentTab, setCurrentTab }) => 
                 <button onClick={() => handleNavClick('home')} className="text-left py-2 hover:text-primary">{t('home')}</button>
                 <button onClick={() => handleNavClick('about')} className="text-left py-2 hover:text-primary">{t('about')}</button>
                 <button onClick={() => handleNavClick('products')} className="text-left py-2 hover:text-primary">{t('products')}</button>
-                <button onClick={() => handleNavClick('media')} className="text-left py-2 hover:text-primary">{t('media')}</button>
+                <button onClick={() => handleNavClick('Gallery')} className="text-left py-2 hover:text-primary">{t('Gallery')}</button>
                 <button onClick={() => handleNavClick('membership')} className="text-left py-2 hover:text-primary">{t('membership')}</button>
                 <button onClick={() => handleNavClick('contact')} className="text-left py-2 hover:text-primary">{t('contact')}</button>
               </div>
