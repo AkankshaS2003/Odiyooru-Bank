@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { PiggyBank, Briefcase, Sparkles, TrendingUp, HelpCircle, CheckCircle, AlertCircle, X, ShieldAlert, Landmark, FileCheck } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
-import { useLanguage } from '../context/LanguageContext';
+import { useLanguage } from '../App';
 
 export interface ProductItem {
   id: string;

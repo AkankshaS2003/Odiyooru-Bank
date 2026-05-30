@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Search, Bell, Menu, X, User, LogOut, ChevronDown, CheckCircle2, Landmark, Globe } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
-import { useLanguage } from '../context/LanguageContext';
-import type { Language } from '../context/LanguageContext';
+import { useLanguage } from '../App';
+import type { Language } from '../App';
 
 interface NavbarProps {
   currentTab: string;
@@ -26,7 +26,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentTab, setCurrentTab }) => 
   useEffect(() => {
     const updateDateTime = () => {
       const now = new Date();
-      const locale = language === 'kn' ? 'kn-IN' : language === 'hi' ? 'hi-IN' : 'en-IN';
+      const locale = 'en-IN';
       const formatted = now.toLocaleString(locale, {
         weekday: 'short',
         year: 'numeric',
@@ -69,17 +69,17 @@ export const Navbar: React.FC<NavbarProps> = ({ currentTab, setCurrentTab }) => 
       <header className="w-full bg-[#0A315C] z-30 select-none shadow-sm">
         
         {/* Row 1: Top Bar with Ticker & Clock */}
-        <div className="bg-[#051C36] text-white text-[10px] font-semibold py-1 px-4 sm:px-6 lg:px-8 flex justify-between items-center border-b border-secondary/20">
+        <div className="bg-[#051C36] text-white text-sm font-semibold py-2 px-4 sm:px-6 lg:px-8 flex justify-between items-center border-b border-secondary/20">
           
           {/* Left: Scrolling Headlines Marquee */}
           <div className="flex-1 overflow-hidden mr-8 flex items-center space-x-2">
-            <span className="bg-accent text-white px-2 py-0.5 rounded text-[8px] uppercase tracking-wider font-extrabold animate-pulse shrink-0">LATEST News</span>
+            <span className="bg-accent text-white px-2 py-1 rounded text-xs uppercase tracking-wider font-extrabold animate-pulse shrink-0">LATEST News</span>
             <div className="w-full">
               {React.createElement(
                 'marquee',
-                { scrollamount: '3.5', className: 'text-white/95 font-medium leading-none' },
+                { scrollamount: '5', className: 'text-white/95 text-base font-medium leading-none' },
                 <>
-                  <span className="mx-6 font-semibold">• Receive up to 12% annual dividend disburser payouts!</span>
+                  <span className="mx-6 font-semibold">• Sahakari was awarded the Best Federal Cooperative Society</span>
                   <span className="mx-6 font-semibold">• Cooperative Fixed Deposit Rates Increased to 8.25%</span>
                   <span className="mx-6 font-semibold">• New Digital Doorstep Banking Service Sanctioned</span>
                 </>
@@ -88,8 +88,8 @@ export const Navbar: React.FC<NavbarProps> = ({ currentTab, setCurrentTab }) => 
           </div>
 
           {/* Right: Real Date and Time */}
-          <div className="shrink-0 flex items-center space-x-2 text-white/95 font-mono text-[9px] font-bold">
-            <span className="inline-block h-1.5 w-1.5 rounded-full bg-emerald-400 animate-ping"></span>
+          <div className="shrink-0 flex items-center space-x-2 text-white/95 font-mono text-sm font-bold">
+            <span className="inline-block h-2 w-2 rounded-full bg-emerald-400 animate-ping"></span>
             <span>{dateTimeStr}</span>
           </div>
 
@@ -110,14 +110,14 @@ export const Navbar: React.FC<NavbarProps> = ({ currentTab, setCurrentTab }) => 
                 className="h-16 w-16 object-contain shrink-0"
               />
               <div className="leading-tight">
-                <span className="text-base sm:text-lg font-black tracking-tight text-primary uppercase block leading-none font-heading">
+                <span className="text-base sm:text-lg font-black tracking-tight text-white uppercase block leading-none font-heading">
                   Odiyooru Souharda
                 </span>
-                <span className="text-xs font-bold text-slate-500 uppercase tracking-widest leading-none block mt-0.5">
+                <span className="text-xs font-bold text-white uppercase tracking-widest leading-none block mt-0.5">
                   Cooperative Society Ltd
                 </span>
-                <span className="text-[10px] font-bold text-accent block mt-0.5 font-mono leading-none">
-                  DRP;S.9:88;RGN;520;2010-11
+                <span className="text-[10px] font-bold text-white block mt-0.5 font-mono leading-none">
+                  DRP:S.9:88:RGN:520:2010-11
                 </span>
               </div>
             </div>
@@ -128,7 +128,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentTab, setCurrentTab }) => 
               {/* Home */}
               <button
                 onClick={() => handleNavClick('home')}
-                className={`text-sm font-bold uppercase tracking-wider transition-colors hover:text-white ${currentTab === 'home' ? 'text-white animate-pulse-slow' : 'text-white/90'}`}
+                className={`text-sm font-bold uppercase tracking-wider transition-colors hover:text-white ${currentTab === 'home' ? 'text-white' : 'text-white/90'}`}
               >
                 {t('home')}
               </button>
@@ -180,28 +180,18 @@ export const Navbar: React.FC<NavbarProps> = ({ currentTab, setCurrentTab }) => 
               
 
 
-              {/* Search Toggle */}
-              <button 
-                onClick={() => setIsSearchOpen(true)}
-                className="p-2 rounded-xl text-slate-600 hover:bg-slate-100 hover:text-primary transition-colors focus:outline-none"
-              >
-                <Search className="h-4.5 w-4.5" />
-              </button>
-
               {/* Notifications */}
-              {isAuthenticated && (
-                <div className="relative">
-                  <button 
-                    onClick={() => setIsNotificationsOpen(true)}
-                    className="p-2 rounded-xl text-slate-600 hover:bg-slate-100 hover:text-primary transition-colors focus:outline-none"
-                  >
-                    <Bell className="h-4.5 w-4.5" />
-                    {notifications.some(n => n.unread) && (
-                      <span className="absolute top-1.5 right-1.5 h-2.5 w-2.5 rounded-full bg-red-500 ring-2 ring-white"></span>
-                    )}
-                  </button>
-                </div>
-              )}
+              <div className="relative">
+                <button 
+                  onClick={() => setIsNotificationsOpen(true)}
+                  className="p-2 rounded-xl text-white hover:bg-white/10 transition-colors focus:outline-none"
+                >
+                  <Bell className="h-5 w-5" />
+                  {notifications.some(n => n.unread) && (
+                    <span className="absolute top-1.5 right-1.5 h-2.5 w-2.5 rounded-full bg-red-500 ring-2 ring-white"></span>
+                  )}
+                </button>
+              </div>
 
               {/* Auth states */}
               <div className="hidden sm:flex items-center space-x-2">
@@ -237,7 +227,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentTab, setCurrentTab }) => 
               {/* Mobile Drawer button */}
               <button
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                className="lg:hidden p-2 rounded-xl text-slate-600 hover:bg-slate-100 hover:text-primary transition-colors focus:outline-none"
+                className="lg:hidden p-2 rounded-xl text-white hover:bg-white/10 transition-colors focus:outline-none"
               >
                 {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
               </button>

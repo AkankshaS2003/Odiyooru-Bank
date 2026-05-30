@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { Contact } from '../components/Contact';
-import { BranchLocator } from '../components/BranchLocator';
+
 import { Calculators } from '../components/Calculators';
 import { Mail, MapPin, Calculator } from 'lucide-react';
-import { useLanguage } from '../context/LanguageContext';
+import { useLanguage } from '../App';
 
 export const ContactPage: React.FC = () => {
   const { t } = useLanguage();
@@ -23,13 +23,7 @@ export const ContactPage: React.FC = () => {
               <Mail className="h-4 w-4" />
               <span>Central Enquiry</span>
             </button>
-            <button
-              onClick={() => setActiveSubTab('branches')}
-              className={`px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all flex items-center space-x-2 ${activeSubTab === 'branches' ? 'bg-primary text-white shadow-md' : 'text-slate-655 hover:text-slate-900'}`}
-            >
-              <MapPin className="h-4 w-4" />
-              <span>Branches Network</span>
-            </button>
+
             <button
               onClick={() => setActiveSubTab('calculators')}
               className={`px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all flex items-center space-x-2 ${activeSubTab === 'calculators' ? 'bg-primary text-white shadow-md' : 'text-slate-655 hover:text-slate-900'}`}
@@ -43,7 +37,7 @@ export const ContactPage: React.FC = () => {
         {/* Dynamic Sub-Tab Views */}
         <div className="animate-scale-up">
           {activeSubTab === 'form' && <Contact />}
-          {activeSubTab === 'branches' && <BranchLocator />}
+
           {activeSubTab === 'calculators' && <Calculators />}
         </div>
 

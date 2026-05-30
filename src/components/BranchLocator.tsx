@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Search, MapPin, Phone, Landmark, Clock, Filter } from 'lucide-react';
-import { useLanguage } from '../context/LanguageContext';
+import { useLanguage } from '../App';
 
 interface Branch {
   name: string;

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Smartphone, Send, UserCheck, FileText, CheckCircle2 } from 'lucide-react';
-import { useLanguage } from '../context/LanguageContext';
+import { useLanguage } from '../App';
 
 interface DigitalBankingProps {
   setCurrentTab: (tab: string) => void;

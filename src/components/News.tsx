@@ -1,6 +1,6 @@
 import React from 'react';
 import { Calendar, ArrowUpRight, Megaphone, Users, Landmark } from 'lucide-react';
-import { useLanguage } from '../context/LanguageContext';
+import { useLanguage } from '../App';
 
 export const News: React.FC = () => {
   const { t } = useLanguage();

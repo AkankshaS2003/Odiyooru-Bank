@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { FileText, ArrowDownToLine, CheckCircle2, RefreshCw } from 'lucide-react';
-import { useLanguage } from '../context/LanguageContext';
+import { useLanguage } from '../App';
 
 interface BankForm {
   id: string;

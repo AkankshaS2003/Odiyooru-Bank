@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Landmark, ShieldCheck, Mail, Lock, Phone, ArrowRight, ShieldAlert, KeyRound, Globe } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
-import { useLanguage } from '../context/LanguageContext';
+import { useLanguage } from '../App';
 
 interface LoginProps {
   setCurrentTab: (tab: string) => void;

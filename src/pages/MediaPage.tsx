@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useLanguage } from '../context/LanguageContext';
+import { useLanguage } from '../App';
 
 export const MediaPage: React.FC = () => {
   const { t } = useLanguage();
