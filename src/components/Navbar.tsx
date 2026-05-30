@@ -67,10 +67,10 @@ export const Navbar: React.FC<NavbarProps> = ({ currentTab, setCurrentTab }) => 
     <>
       {/* 1. Static Top Header (Ticker & Banner) */}
       <header className="w-full bg-[#0A315C] z-30 select-none shadow-sm">
-        
+
         {/* Row 1: Top Bar with Ticker & Clock */}
         <div className="bg-[#051C36] text-white text-sm font-semibold py-2 px-4 sm:px-6 lg:px-8 flex justify-between items-center border-b border-secondary/20">
-          
+
           {/* Left: Scrolling Headlines Marquee */}
           <div className="flex-1 overflow-hidden mr-8 flex items-center space-x-2">
             <span className="bg-accent text-white px-2 py-1 rounded text-xs uppercase tracking-wider font-extrabold animate-pulse shrink-0">LATEST News</span>
@@ -101,7 +101,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentTab, setCurrentTab }) => 
       <nav className="sticky top-0 z-40 bg-[#ED7F1E] backdrop-blur-md border-b border-slate-150 shadow-sm select-none">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-20">
-            
+
             {/* Logo Circular Seal (Compact for Sticky Bar!) */}
             <div className="flex items-center space-x-2.5 cursor-pointer" onClick={() => handleNavClick('home')}>
               <img
@@ -124,7 +124,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentTab, setCurrentTab }) => 
 
             {/* Desktop Navigation Links */}
             <nav className="hidden lg:flex items-center space-x-6">
-              
+
               {/* Home */}
               <button
                 onClick={() => handleNavClick('home')}
@@ -151,7 +151,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentTab, setCurrentTab }) => 
 
               {/* Gallery */}
               <button
-                onClick={() => handleNavClick('Gallery')}
+                onClick={() => handleNavClick('media')}
                 className={`text-sm font-bold uppercase tracking-wider transition-colors hover:text-white ${currentTab === 'Gallery' ? 'text-white' : 'text-white/90'}`}
               >
                 {t('Gallery')}
@@ -177,12 +177,12 @@ export const Navbar: React.FC<NavbarProps> = ({ currentTab, setCurrentTab }) => 
 
             {/* Quick Actions Interaction Area */}
             <div className="flex items-center space-x-3.5">
-              
+
 
 
               {/* Notifications */}
               <div className="relative">
-                <button 
+                <button
                   onClick={() => setIsNotificationsOpen(true)}
                   className="p-2 rounded-xl text-white hover:bg-white/10 transition-colors focus:outline-none"
                 >
@@ -195,14 +195,14 @@ export const Navbar: React.FC<NavbarProps> = ({ currentTab, setCurrentTab }) => 
 
               {/* Auth states */}
               <div className="hidden sm:flex items-center space-x-2">
-                  <a
-                    href="https://example.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="px-4 py-2 rounded-xl bg-primary text-white font-bold text-xs shadow-md transition-all hover:bg-primary-dark"
-                  >
-                    {t('login')}
-                  </a>
+                <a
+                  href="https://example.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-4 py-2 rounded-xl bg-primary text-white font-bold text-xs shadow-md transition-all hover:bg-primary-dark"
+                >
+                  {t('login')}
+                </a>
               </div>
 
               {/* Mobile Drawer button */}
