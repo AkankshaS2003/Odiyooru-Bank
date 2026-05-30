@@ -1,163 +1,108 @@
 import React from 'react';
-import { useLanguage } from '../App';
+import { Landmark, ArrowLeft, CheckCircle2 } from 'lucide-react';
 
-export const AboutUs: React.FC = () => {
-  const { t } = useLanguage();
+interface AboutUsProps {
+  setCurrentTab: (tab: string) => void;
+}
+
+export const AboutUs: React.FC<AboutUsProps> = ({ setCurrentTab }) => {
+  const handleBackToHome = () => {
+    setCurrentTab('home');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
 
   return (
-    <section className="py-24 bg-white">
-      <div className="max-w-6xl mx-auto px-4 space-y-12">
+    <section className="bg-slate-50 min-h-screen">
+      
+      {/* 1. Widescreen Hero Section with a Random Image Background & Back to Home Button & Centered Title */}
+      <div className="relative h-[240px] sm:h-[320px] w-full overflow-hidden flex items-center justify-center p-6 sm:p-8">
         
-        {/* Story */}
-        <div className="text-center space-y-4 max-w-3xl mx-auto">
-          <span className="text-sm font-bold text-primary uppercase tracking-widest block">{t('about_title')}</span>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 font-heading">{t('about_subtitle')}</h2>
-          <p className="text-slate-650 leading-relaxed text-sm">
-            {t('about_desc')}
+        {/* Background random image */}
+        <img 
+          src="/about_hero1.png" 
+          alt="" 
+          className="absolute inset-0 w-full h-full object-cover filter brightness-[0.3] scale-105"
+        />
+        
+        {/* Blue color overlay matching the user's reference image */}
+        <div className="absolute inset-0 bg-[#0A315C]/80 mix-blend-multiply"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0A315C]/90 via-[#0A315C]/50 to-transparent"></div>
+        
+        {/* Top Left: Back to Home Button (Absolutely positioned to allow perfect centering) */}
+        <button 
+          onClick={handleBackToHome}
+          className="absolute top-6 left-6 sm:top-8 sm:left-8 z-10 flex items-center space-x-2 px-4 py-2 bg-white/10 hover:bg-white/20 text-white border border-white/20 rounded-full text-xs font-bold transition-all duration-300 focus:outline-none backdrop-blur-xs transform active:scale-95 cursor-pointer"
+          title="Back to Home"
+        >
+          <ArrowLeft className="h-4 w-4 shrink-0 text-white" />
+          <span>Back to Home</span>
+        </button>
+        
+        {/* Horizontal & Vertical Center: Hero Title Overlay & Breadcrumb */}
+        <div className="relative z-10 text-center space-y-2">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-black text-white tracking-tight font-heading uppercase drop-shadow-md">
+            About Us
+          </h1>
+          <p className="text-slate-350 text-xs sm:text-sm font-semibold tracking-wider uppercase">
+            Home • About Us
           </p>
         </div>
-
-        {/* History & Profile */}
-        <div className="bg-gradient-to-br from-slate-50 to-white border border-slate-200/80 rounded-3xl p-8 md:p-10 shadow-sm relative overflow-hidden">
-          <div className="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl -mr-20 -mt-20"></div>
-          <div className="absolute bottom-0 left-0 w-64 h-64 bg-accent/5 rounded-full blur-3xl -ml-20 -mb-20"></div>
-
-          <div className="relative grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-            {/* Story & Founders Column */}
-            <div className="lg:col-span-7 space-y-6 text-left">
-              <div className="flex items-center gap-3">
-                <div className="p-2.5 rounded-2xl bg-primary/10 text-primary">
-                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-                  </svg>
-                </div>
-                <h3 className="text-2xl font-extrabold text-slate-900 tracking-tight font-heading">
-                  {t('about_history_title')}
-                </h3>
-              </div>
-
-              <div className="space-y-4 text-slate-600 text-sm leading-relaxed font-normal">
-                <p className="border-l-4 border-primary pl-4 py-1 bg-primary/[0.02]">
-                  {t('about_history_p1')}
-                </p>
-                <p className="bg-slate-50/50 p-4 rounded-2xl border border-slate-100/80">
-                  {t('about_history_p2')}
-                </p>
-              </div>
-
-              {/* Founder Profile Badge Row */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
-                <div className="flex items-center gap-3 p-3 bg-white border border-slate-150 rounded-2xl shadow-sm">
-                  <div className="w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center text-accent font-bold text-sm">
-                    SR
-                  </div>
-                  <div>
-                    <h5 className="font-bold text-xs text-slate-800">Lion Sri A. Suresh Rai</h5>
-                    <p className="text-[10px] text-slate-500 font-medium uppercase tracking-wider">Founder President</p>
-                  </div>
-                </div>
-                <div className="flex items-center gap-3 p-3 bg-white border border-slate-150 rounded-2xl shadow-sm">
-                  <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary font-bold text-sm">
-                    DS
-                  </div>
-                  <div>
-                    <h5 className="font-bold text-xs text-slate-800">Mr. Dyananda Shetty</h5>
-                    <p className="text-[10px] text-slate-500 font-medium uppercase tracking-wider">Chief Executive Officer</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Awards Column */}
-            <div className="lg:col-span-5 space-y-6">
-              <div className="bg-white/80 backdrop-blur border border-slate-200/60 p-6 rounded-3xl shadow-sm space-y-5 text-left relative overflow-hidden">
-                <div className="absolute top-0 right-0 w-32 h-32 bg-secondary/5 rounded-full blur-2xl -mr-10 -mt-10"></div>
-                
-                <div className="flex items-center gap-2">
-                  <div className="p-2 rounded-xl bg-secondary/15 text-secondary-dark">
-                    <svg className="w-5 h-5 animate-pulse-slow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
-                    </svg>
-                  </div>
-                  <h4 className="font-bold text-slate-800 text-sm tracking-wide">
-                    {t('about_history_p3')}
-                  </h4>
-                </div>
-
-                <div className="space-y-4">
-                  {/* Award 1 */}
-                  <div className="p-4 rounded-2xl bg-gradient-to-r from-slate-50 to-white border border-slate-150/80 hover:border-secondary transition-colors duration-300 flex gap-3.5 items-start group shadow-2xs">
-                    <div className="mt-0.5 p-2 rounded-lg bg-secondary/10 text-secondary-dark group-hover:scale-110 transition-transform duration-300">
-                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5a2 2 0 10-2 2h2zm0 0h4m-4 0H8m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
-                      </svg>
-                    </div>
-                    <div className="space-y-1">
-                      <span className="text-[10px] font-bold text-secondary-dark tracking-wider uppercase bg-secondary/10 px-2 py-0.5 rounded-full">Federal Honor</span>
-                      <p className="text-xs font-semibold text-slate-700 leading-relaxed pt-1">
-                        {t('about_award1')}
-                      </p>
-                    </div>
-                  </div>
-
-                  {/* Award 2 */}
-                  <div className="p-4 rounded-2xl bg-gradient-to-r from-slate-50 to-white border border-slate-150/80 hover:border-accent transition-colors duration-300 flex gap-3.5 items-start group shadow-2xs">
-                    <div className="mt-0.5 p-2 rounded-lg bg-accent/10 text-accent-dark group-hover:scale-110 transition-transform duration-300">
-                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
-                      </svg>
-                    </div>
-                    <div className="space-y-1">
-                      <span className="text-[10px] font-bold text-accent-dark tracking-wider uppercase bg-accent/10 px-2 py-0.5 rounded-full">Excellence Award</span>
-                      <p className="text-xs font-semibold text-slate-700 leading-relaxed pt-1">
-                        {t('about_award2')}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Board of Governance */}
-        <div className="space-y-6">
-          <h3 className="text-xl font-bold text-slate-900 text-center uppercase tracking-wider">{t('board_governance')}</h3>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-            {[
-              { name: t('board_c_name'), role: t('board_c_role'), bio: t('board_c_bio'), initials: 'S' },
-              { name: t('board_vc_name'), role: t('board_vc_role'), bio: t('board_vc_bio'), initials: 'D' },
-              { name: t('board_md_name'), role: t('board_md_role'), bio: t('board_md_bio'), initials: 'S' }
-            ].map((gov, idx) => (
-              <div key={idx} className="bg-slate-50 border border-slate-150 p-6 rounded-3xl text-center space-y-2">
-                <div className="h-12 w-12 rounded-full bg-primary/10 text-primary font-bold flex items-center justify-center text-sm mx-auto">
-                  {gov.initials}
-                </div>
-                <h4 className="font-extrabold text-slate-900 text-sm">{gov.name}</h4>
-                <span className="text-[10px] bg-[#16A34A]/10 text-[#16A34A] px-2 py-0.5 rounded-full font-bold uppercase tracking-wider">{gov.role}</span>
-                <p className="text-slate-500 text-xs leading-relaxed pt-2">{gov.bio}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Core Statutes */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-6 text-left">
-          <div className="p-5 bg-slate-50 border border-slate-150 rounded-3xl">
-            <h4 className="font-bold text-sm text-primary mb-1">{t('democratic_governance')}</h4>
-            <p className="text-xs text-slate-500 leading-relaxed font-semibold">{t('democratic_desc')}</p>
-          </div>
-          <div className="p-5 bg-slate-50 border border-slate-150 rounded-3xl">
-            <h4 className="font-bold text-sm text-primary mb-1">{t('asset_security')}</h4>
-            <p className="text-xs text-slate-500 leading-relaxed font-semibold">{t('asset_desc')}</p>
-          </div>
-          <div className="p-5 bg-slate-50 border border-slate-150 rounded-3xl">
-            <h4 className="font-bold text-sm text-primary mb-1">{t('community_growth')}</h4>
-            <p className="text-xs text-slate-500 leading-relaxed font-semibold">{t('community_desc')}</p>
-          </div>
-        </div>
-
+        
       </div>
+
+      {/* 2. Premium Grid Section: Left Overlapping Images & Right Content */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+          
+          {/* Left Column: Overlapping Photos exactly like reference image (experience badge removed) with hover animations */}
+          <div className="lg:col-span-5 relative w-full h-[380px] sm:h-[450px] group">
+            
+            {/* Image 1: Main background / Left side */}
+            <div className="absolute top-0 left-0 w-[78%] h-[280px] sm:h-[340px] rounded-3xl overflow-hidden shadow-2xl border-4 border-white z-10 transition-all duration-700 ease-in-out group-hover:scale-[1.03] group-hover:-translate-x-2 group-hover:-translate-y-2 group-hover:rotate-1">
+              <img 
+                src="/about_hero2.png" 
+                alt="Cooperative Society Staff" 
+                className="w-full h-full object-cover filter brightness-95"
+              />
+            </div>
+            
+            {/* Image 2: Overlapping bottom right */}
+            <div className="absolute bottom-0 right-0 w-[70%] h-[200px] sm:h-[250px] rounded-3xl overflow-hidden shadow-2xl border-4 border-white z-20 transition-all duration-700 ease-in-out group-hover:scale-[1.05] group-hover:translate-x-3 group-hover:translate-y-3 group-hover:-rotate-2">
+              <img 
+                src="/about_section2_left.png" 
+                alt="Prosperity and Trust Emblem" 
+                className="w-full h-full object-cover filter brightness-95"
+              />
+            </div>
+            
+          </div>
+
+          {/* Right Column: Dynamic Text & Beautiful Card containing the 2 paragraphs of detailed history */}
+          <div className="lg:col-span-7 text-left space-y-6">
+            
+            {/* Top Caps Sublabel */}
+            <span className="text-[10px] font-extrabold uppercase tracking-widest text-[#0A315C] bg-[#0A315C]/10 px-3 py-1 rounded-full border border-[#0A315C]/20 inline-block">
+              Society About
+            </span>
+            
+            {/* Custom Card containing the 2 paragraphs of detailed history */}
+            <div className="bg-white p-6 sm:p-8 rounded-3xl border border-slate-200 shadow-lg space-y-4 relative overflow-hidden transition-all duration-300 hover:shadow-xl hover:border-slate-300/80">
+              <div className="absolute top-0 left-0 w-full h-1.5 bg-[#0A315C]"></div>
+              
+              <p className="text-slate-800 text-xs sm:text-sm leading-relaxed font-bold">
+                Odiyoor Sri Vividhoddesha Souharda Sahakari Sangha Niyamitha was established on 20-04-2011 inaugurated and blessed by the founder his Holyness Shree Shree Gurudevananda Swamiji Odiyoor Samsthanam, Odiyoor. Having its Head office @ Odiyoor and Regional office at Pumpwell Mangaluru.
+              </p>
+              
+              <p className="text-slate-650 text-xs sm:text-sm leading-relaxed font-semibold">
+                Odiyoor Sri Vividhoddesha Souharda Sahakari Sangha Niyamitha was Established on 20-04-2011 has been a saga of farsighted vision, dedication, sacrifice, motivation, leadership and hard work on the party is founder President, Lion Sri A. Suresh Rai and all the Directors on the Board as well as Chief Executive Officer Mr Dyananda Shetty Bakrabail. Lion Sri A. Suresh Rai is the founder President since Inspection dt 20-04-2011 for period 2011 – 2016 and re-elected unanimously as President for the Period 2016 – 2021 , again re-elected unanimously as President for the Period 2021 – 2025. He is handling the post of President for more than a decade. During the tenure of Lion Sri A .Suresh Rai‘s Presidency our Sahakari have been honoured and awarded twice . 1) Best Federal Co-op society award sponsored by State Federal co-op Zone Year 2018-2019. 2) Best Federal Co-op society award 2022 under 69th All India Cooperative Sapthaha 2022 dt 18-11-2022 sponsored by Dakshina Kannada District Central Co-op Bank award honored and presented by Sri S. T. Somashekara Minister for co-op State and Dr M. N. Rajendrakumar President Dakshina Kannada District Central Co- op Bank Mangaluru.
+              </p>
+            </div>
+            
+          </div>
+
+        </div>
+      </div>
+      
     </section>
   );
 };

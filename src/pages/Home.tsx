@@ -1,5 +1,6 @@
 import React from 'react';
 import { Hero } from '../components/Hero';
+import { HomeAboutUsSection } from '../components/HomeAboutUsSection';
 import { Products } from '../components/Products';
 import { DigitalBanking } from '../components/DigitalBanking';
 import { WhyChooseUs } from '../components/WhyChooseUs';
@@ -20,6 +21,9 @@ export const Home: React.FC<HomeProps> = ({ setCurrentTab }) => {
       
       {/* 1. Hero banner with live statistic counters */}
       <Hero setCurrentTab={setCurrentTab} />
+
+      {/* New About Us section with logo, paragraph, and Know More button */}
+      <HomeAboutUsSection setCurrentTab={setCurrentTab} />
 
       {/* 2. Banking Products tabs (FD, RD, Gold Loans cards) */}
       <div id="products-section">

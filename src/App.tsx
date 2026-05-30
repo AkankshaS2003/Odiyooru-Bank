@@ -1055,7 +1055,7 @@ const AppContent: React.FC = () => {
       case 'media':
         return <MediaPage />;
       case 'about':
-        return <AboutUs />;
+        return <AboutUs setCurrentTab={setCurrentTab} />;
       default:
         return <Home setCurrentTab={setCurrentTab} />;
     }
