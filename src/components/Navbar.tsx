@@ -195,33 +195,14 @@ export const Navbar: React.FC<NavbarProps> = ({ currentTab, setCurrentTab }) => 
 
               {/* Auth states */}
               <div className="hidden sm:flex items-center space-x-2">
-                {isAuthenticated && user ? (
-                  <>
-                    <button
-                      onClick={() => handleNavClick('dashboard')}
-                      className={`px-4 py-2 rounded-xl border font-bold text-xs transition-all ${currentTab === 'dashboard' ? 'bg-primary text-white border-primary' : 'bg-white hover:bg-slate-50 border-slate-200 text-slate-700'}`}
-                    >
-                      <span>{t('dashboard')}</span>
-                    </button>
-                    <button
-                      onClick={() => {
-                        logout();
-                        handleNavClick('home');
-                      }}
-                      className="p-2 border border-slate-200 hover:bg-red-55 hover:text-red-600 hover:border-red-200 rounded-xl transition-all"
-                      title={t('logout')}
-                    >
-                      <LogOut className="h-4 w-4" />
-                    </button>
-                  </>
-                ) : (
-                  <button
-                    onClick={() => handleNavClick('login')}
+                  <a
+                    href="https://example.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="px-4 py-2 rounded-xl bg-primary text-white font-bold text-xs shadow-md transition-all hover:bg-primary-dark"
                   >
                     {t('login')}
-                  </button>
-                )}
+                  </a>
               </div>
 
               {/* Mobile Drawer button */}
