@@ -79,7 +79,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentTab, setCurrentTab }) => 
                 'marquee',
                 { scrollamount: '5', className: 'text-white/95 text-base font-medium leading-none' },
                 <>
-                  <span className="mx-6 font-semibold">• Sahakari was awarded the Best Federal Cooperative Society</span>
+                  <span className="mx-6 font-semibold">• State Best Souharda Cooperative Society Award in the 69th All India Cooperative Week</span>
                   <span className="mx-6 font-semibold">• Cooperative Fixed Deposit Rates Increased to 8.25%</span>
                   <span className="mx-6 font-semibold">• New Digital Doorstep Banking Service Sanctioned</span>
                 </>
