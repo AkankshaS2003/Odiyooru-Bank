@@ -110,7 +110,6 @@ export const Management: React.FC<ManagementProps> = ({ setCurrentTab }) => {
       bio: 'Sri. Ashok Kumar U S provides extensive administrative insights and strategic direction to the society. His dedication lies in building a resilient governance structure and fostering long-term value for all cooperative members.',
     },
   ];
-
   return (
     <section className="bg-slate-50 min-h-screen pb-20">
       {/* 1. Widescreen Hero Section with a Random Image Background & Back to Home Button & Centered Title */}
@@ -151,7 +150,7 @@ export const Management: React.FC<ManagementProps> = ({ setCurrentTab }) => {
         {/* 2. Highlight Card for Intro Paragraph */}
         <div className="bg-white rounded-3xl border border-slate-200 shadow-xl p-8 sm:p-10 relative overflow-hidden transition-all duration-300 hover:shadow-2xl max-w-4xl mx-auto text-center">
           <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-[#ED7F1E] to-[#0A315C]"></div>
-          
+
           <div className="flex justify-center mb-4">
             <div className="p-3 bg-[#0A315C]/10 rounded-full text-[#0A315C]">
               <Users className="h-8 w-8" />
@@ -192,10 +191,10 @@ export const Management: React.FC<ManagementProps> = ({ setCurrentTab }) => {
                           <span>{director.role}</span>
                         </div>
                       )}
-                      
+
                       {/* Elegant bottom gradient shade on picture */}
                       <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-30 group-hover:opacity-15 transition-opacity duration-500"></div>
-                      
+
                       {/* Interaction hint */}
                       <div className="absolute bottom-3 left-4 z-10 bg-black/40 backdrop-blur-xs px-2.5 py-1 rounded-full flex items-center space-x-1">
                         <span className="text-[9px] font-bold text-white uppercase tracking-wider">Hover to Flip</span>
