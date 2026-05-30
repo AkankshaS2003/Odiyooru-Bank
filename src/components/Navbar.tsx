@@ -69,15 +69,15 @@ export const Navbar: React.FC<NavbarProps> = ({ currentTab, setCurrentTab }) => 
       <header className="w-full bg-[#0A315C] z-30 select-none shadow-sm">
         
         {/* Row 1: Top Bar with Ticker & Clock */}
-        <div className="bg-[#051C36] text-white text-sm font-semibold py-2 px-4 sm:px-6 lg:px-8 flex justify-between items-center border-b border-secondary/20">
+        <div className="bg-[#051C36] text-white text-sm font-semibold py-2 px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-start md:items-center border-b border-secondary/20 gap-2 md:gap-0 relative">
           
           {/* Left: Scrolling Headlines Marquee */}
-          <div className="flex-1 overflow-hidden mr-8 flex items-center space-x-2">
+          <div className="w-full flex-1 overflow-hidden md:mr-8 flex items-center space-x-2 order-2 md:order-1">
             <span className="bg-accent text-white px-2 py-1 rounded text-xs uppercase tracking-wider font-extrabold animate-pulse shrink-0">LATEST News</span>
             <div className="w-full">
               {React.createElement(
                 'marquee',
-                { scrollamount: '5', className: 'text-white/95 text-base font-medium leading-none' },
+                { scrollamount: '5', className: 'text-white/95 text-base font-medium leading-none flex items-center' },
                 <>
                   <span className="mx-6 font-semibold">• State Best Souharda Cooperative Society Award in the 69th All India Cooperative Week</span>
                   <span className="mx-6 font-semibold">• Cooperative Fixed Deposit Rates Increased to 8.25%</span>
@@ -87,10 +87,10 @@ export const Navbar: React.FC<NavbarProps> = ({ currentTab, setCurrentTab }) => 
             </div>
           </div>
 
-          {/* Right: Real Date and Time */}
-          <div className="shrink-0 flex items-center space-x-2 text-white/95 font-mono text-sm font-bold">
-            <span className="inline-block h-2 w-2 rounded-full bg-emerald-400 animate-ping"></span>
-            <span>{dateTimeStr}</span>
+          {/* Center/Right: Real Date and Time */}
+          <div className="shrink-0 flex items-center justify-center space-x-2 text-white/80 text-[11px] font-medium order-1 md:order-2 pb-1 md:pb-0 border-b md:border-b-0 border-white/10 w-full md:w-auto">
+            <span className="inline-block h-1.5 w-1.5 rounded-full bg-emerald-400 animate-ping"></span>
+            <span className="font-stencil tracking-wider">{dateTimeStr}</span>
           </div>
 
         </div>

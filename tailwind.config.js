@@ -31,6 +31,7 @@ export default {
       fontFamily: {
         sans: ['Poppins', 'sans-serif'],
         heading: ['Montserrat', 'sans-serif'],
+        stencil: ['"Big Shoulders Stencil Text"', 'cursive'],
       },
     },
   },
